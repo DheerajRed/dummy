@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/5.10.2/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    
+    <style>
+        body {
+            background: #ffffff;
+            font-family: 'Mulish', sans-serif;
+            color: #000000;
+            font-size: 1.0rem;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 1.5;
+            margin: 0;
+            min-height: 100vh;
+            /*  display: flex;
+   flex-direction: column;*/
+            height: 100%;
+            background-color: gainsboro;
+        }
+
+        .sections {
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 0 15px;
+            /* width: 100%; */
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid gainsboro;
+    box-shadow: 3px 3px #9e9c9c;
+        }
+
+        #page {
+            width: 100%;
+            margin: 0 auto;
+            /*min-height:400px;*/
+            min-height: fit-content;
+            overflow: auto
+        }
+
+        .container-fluid {
+            /* width: 100%; */
+            padding-right: 15px;
+            /* padding-left: 15px; */
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+
+        #header {
+            width: 100%;
+            margin: 0 auto;
+            z-index: 3;
+            box-shadow: 1px 3px 3px gainsboro;
+            /*overflow:auto*/
+        }
+
+        .ha-m-wrap {
+            display: flex;
+            width: 260px;
+        }
+
+        .ha-m-wrap .openbtn {
+            font-size: 30px;
+            color: #82005F;
+            margin: 0;
+            width: auto !important;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .sidepanel {
+            width: 0;
+            position: fixed;
+            z-index: 999;
+            /* z-index: 1; */
+            height:
+                /*100%*/
+                -webkit-fill-available;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 6px;
+        }
+
+        .f-p-n-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ar-p {
+            display: flex;
+        }
+
+        .sidepanel a {
+            padding: 8px 8px 8px 20px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 100%;
+            text-transform: capitalize;
+            color: #000;
+            line-height: 1.8;
+            cursor: pointer;
+        }
+
+        #header .profile {
+            display: flex;
+            align-items: center;
+            margin: 0px 5px;
+        }
+
+        .profile img {
+            width: 50px;
+            height: 50px;
+        }
+
+        #header .profile i {
+            padding: 0px 5px;
+        }
+
+        .c-c-c-wrap i {
+            color: #000;
+            font-size: 25px;
+            display: block;
+            /* margin: auto; */
+            /* width: auto; */
+            padding: 0 10px;
+        }
+
+        #header .m-search {
+            float: none;
+            margin: 20px 0;
+            padding: 0 15px;
+        }
+
+        #header .form-select {
+            /*color: #000;*/
+            padding: 2px;
+            border-radius: 36px;
+            border: none;
+            /* display: inline-flex; */
+            margin: 15px 0;
+            position: relative;
+        }
+
+        #header .m-search form {
+            display: flex;
+            /*justify-content: space-between;*/
+            width: 100%;
+            /*border: 1px solid gainsboro;*/
+            float: none;
+            margin: 0px;
+        }
+
+        #header .m-search form input {
+            height: 30px;
+            border-radius: 20px;
+            border: 1px solid gainsboro;
+        }
+
+        .smaller-side-p {
+            overflow-y: auto;
+            height: auto;
+            padding: 1% 0%;
+        }
+
+        .spanclass {
+            /* margin-left: 1.5rem; */
+            transition: opacity .6s ease;
+            opacity: 100;
+            display: none;
+        }
+
+        .m-f-p-n-wrap {
+            display: flex;
+            align-items: center;
+            padding: 1% 3%;
+            position: absolute;
+            /* bottom: 5%; */
+            margin-top: 70px;
+        }
+
+        .s-li-wrap {
+            display: flex;
+            align-items: center;
+            width: 105px;
+            justify-content: space-between;
+        }
+
+        .sidenavbar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 999;
+            /* z-index: 1; */
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenavbar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .menu-hamburger {
+            height: 6vh;
+            position: relative;
+            display: none;
+        }
+
+        .menu-hamburger__icon {
+            padding: 3px 0;
+            font-size: 24px;
+            position: absolute;
+            right: 20px;
+            color: #fff;
+            margin-top: -5px;
+        }
+
+        .menu-wrap {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .b-a-l-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 265px;
+        }
+
+        .menu-wrapper {
+            height: auto;
+            line-height: 1;
+            background: #fff;
+            padding-bottom: 10px;
+        }
+
+        .smaller-side-p li {
+            margin-top: 20px;
+            border-bottom: 1px solid gainsboro;
+        }
+
+        #margwrap {
+            display: flex;
+        }
+
+        .bodydivcontainer {
+            display: flex;
+        }
+
+        .profile img {
+            margin-right: 30px;
+        }
+
+        #searchBar {
+            display: flex;
+        }
+
+        #margwrap {
+            display: flex;
+        }
+
+        .bodydivcontainer {
+            display: flex;
+        }
+
+        .bodyofcontainer {
+            width: 1400px;
+            overflow: hidden;
+            background-color: white;
+            margin-left: 20px;
+            margin-top: 10px;
+            border-radius: 20px;
+        }
+
+        #menubartwoid {
+            background: none;
+            border: none;
+            font-size: 30px;
+            margin-top: 10px;
+            margin-left: -10px;
+            font-size: 40px;
+        }
+
+        #searchBar {
+            display: flex;
+        }
+
+        #sorticon {
+            display: none;
+        }
+
+
+        #sidepaneltwoid {
+            background-color: white;
+            width: 60px;
+            height: 120vh;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .sidetext {
+            display: none;
+        }
+
+        .sidebaritem {
+            display: flex;
+            border: 1px solid gainsboro;
+            background-color: rgb(87, 87, 226);
+            border-radius: 20px;
+            margin: 10px 10px;
+
+        }
+
+        .sidebaritem p {
+            margin-left: 10px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .title-logo-wrap {
+            display: flex;
+        }
+
+        .title-logo-wrap img {
+            margin-left: 10px;
+        }
+
+        .title {
+            width: auto;
+            display: flex;
+
+        }
+
+        .title h2 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-left: 50%;
+            color: blue;
+        }
+
+        .title button {
+            background: none;
+            border: none;
+            font-size: 30px;
+        }
+
+        .leftsideoptions {
+            display: flex;
+            gap: 5px;
+
+        }
+
+        .select-sim {
+
+            line-height: 22px;
+            vertical-align: middle;
+            position: relative;
+            overflow: hidden;
+            background-color: transparent;
+            /*border: 2px solid #b5bcc7;*/
+            cursor: pointer;
+            /* border-radius: 20px; */
+            padding: 0px 11px !important;
+            width: 160px;
+            /* height: 35px; */
+            margin: 0 5px;
+            /* z-index: 1; */
+            height: 38px;
+            border-radius: 8px;
+            margin: 0 9px 0 0;
+        }
+
+        /* .select-sim::after {
+  content:"\f107";
+  font-size:0.5em;
+  font-family:arial;
+  position:absolute;
+  top:50%;
+  right:5px;
+  transform:translate(0, -50%);
+} */
+
+        .select-sim:hover::after {
+            content: "";
+        }
+
+        .select-sim:hover {
+            overflow: visible;
+        }
+
+        .select-sim .options .option input:first-child:hover {}
+
+        .select-sim:hover .select-a-d {
+            display: none;
+        }
+
+        .select-sim:hover .options .option label {
+            display: inline-block;
+        }
+
+        .select-sim .options .option label i {
+            color: #82005F;
+            font-size: 25px;
+        }
+
+        .select-sim:hover .options {
+            background: white;
+            border: 1px solid #ccc;
+            position: absolute;
+            /*top: -18px;
+            left: -1px;*/
+            /*width: 100%;*/
+            height: 160px;
+            overflow-y: scroll;
+        }
+
+        .select-sim .options .option {
+            overflow: hidden;
+        }
+
+        .select-sim:hover .options .option {
+            height: 22px;
+            overflow: hidden;
+        }
+
+        .select-sim .options .option img {
+            /* vertical-align:middle; */
+            /* padding: 0 20px; */
+        }
+
+        .select-sim:hover .options .option img {
+            /* vertical-align:middle; */
+            padding: 0 20px;
+        }
+
+        .select-sim .options .option label {
+            display: none;
+        }
+
+        .select-sim .options .option input {
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            float: left;
+            display: inline-block;
+            /* fix specific for Firefox */
+            position: absolute;
+            left: -10000px;
+        }
+
+        .select-sim .options .option input:checked+label {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .select-sim .options .option input:first-child:checked+label {
+            justify-content: space-evenly;
+        }
+
+        .select-sim:hover .options .option input+label {
+            display: block;
+        }
+
+        .select-sim:hover .options .option input:checked+label {
+            background: #ccc;
+        }
+
+        .select-sim:hover .options .option {
+            padding-bottom: 8px;
+        }
+
+        .sectionsclass {
+            margin: 20px;
+            display: flex;
+            height: 80px;
+            margin-top: 80px;
+            justify-content: space-between;
+
+        }
+
+        #selectid {
+            border: 1px solid gainsboro;
+            border-radius: 10px;
+            height: 40px;
+        }
+
+        #selectoption {
+            border: none;
+        }
+
+        .options button {
+            background: none;
+           border: none;
+            font-size: 30px;
+            margin-left: 0px;
+        }
+
+        #sidebuttons {
+
+            border: none;
+        }
+
+        #sortby {
+            display: none;
+            font-size: 23px;
+           
+        }
+        #sortby i{
+            margin-left: -40px;
+            
+        }
+
+        #sort {
+            font-size: 23px;
+            appearance: none; 
+            border: 1px solid gainsboro;
+            border-radius: 10px;
+            font-size: 20px;
+            width: 180px;
+            text-align: center;
+            background: none;
+            height: 40px;
+           
+        }
+
+        select {}
+
+        .optionsdiv {
+            margin-left: 20px;
+        }
+
+        .option i {
+            margin-left: 20px;
+        }
+
+        .optiontwo i {
+            margin-left: 20px;
+        }
+
+        .option img {
+            margin-right: 10px;
+        }
+
+        .optiontwo img {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .sections {
+            /*border: 1px solid gainsboro;
+            box-shadow: 2px 2px gainsboro;*/
+            display: flex;
+            width: fit-content;
+            height: 40px;
+            flex-wrap: wrap;
+        }
+
+        .options {
+            display: flex;
+            border: 2px solid gainsboro;
+            border-radius: 10px;
+            height: 35px;
+        }
+
+        .options p {
+            margin-left: 15px;
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+
+        .options input {
+            border: none;
+            width: 90px;
+
+        }
+
+        .formfilter {
+            border: 1px solid black;
+            height: auto;
+            background-color: white;
+            z-index: 999;
+            border-radius: 10px;
+            width: 300px;
+            display: none;
+            position: absolute;
+            margin-right: 10px;
+
+        }
+
+        #optionsdate {
+            width: 80px;
+        }
+
+        .date {
+            z-index: 999;
+            height: auto;
+            width: 100px;
+        }
+
+        .formfilter p {
+            font-weight: bold;
+            color: black;
+            margin-left: 10px;
+        }
+
+        .dates {
+            z-index: 999;
+            margin-left: 10px;
+        }
+
+        .formfilter .dates input {
+            border: 1px solid gainsboro;
+            background-color: gainsboro;
+            font-size: 15px;
+        }
+
+        .threebuttons button {
+            border: none;
+            width: 31%;
+            border-radius: 5px;
+            font-size: 20px;
+
+        }
+
+        .threebuttons {
+            margin: 10px;
+        }
+
+        #filter {
+            background-color: rgb(128, 164, 180);
+
+        }
+
+        #clear {
+            background-color: skyblue;
+
+        }
+
+        #cancel {
+            background-color: gainsboro;
+        }
+
+        .table {
+            margin-left: 20px;
+        }
+
+        .tablehead {
+            display: flex;
+            border: 1px solid gainsboro;
+            background-color: rgb(218, 214, 214);
+            height: 40px;
+            width: 1350px;
+            font-weight: bold;
+        }
+
+        .tablehead div {
+            width: 200px;
+            margin-left: 15px;
+        }
+
+        .tablehead div p {
+            margin-top: 5px;
+        }
+
+        .tablebody div p {
+            margin-top: 5px;
+        }
+
+        .tablebody div {
+            width: 200px;
+            margin-left: 15px;
+        }
+
+        .tablebody {
+            display: flex;
+            border: 1px solid gainsboro;
+            width: 1350px;
+            height: 40px;
+            font-weight: bold;
+        }
+
+        .gridviewclass {
+            margin-left: 20px;
+            display: none;
+        }
+
+        #grid {
+            width: auto;
+            display: grid;
+            grid-template-columns: 24% 24% 24% 24%;
+            gap: 10px;
+        }
+
+        .griditemname .img {
+            width: 80px;
+            height: 80px;
+            border: 1px solid rgb(231, 226, 226);
+            background-color: rgb(170, 167, 167);
+            border-radius: 50%;
+            margin-bottom: 40px;
+        }
+
+        .griditemname {
+            margin: 10px 10px;
+            border-bottom: 1px solid rgb(194, 187, 187);
+            display: flex;
+        }
+
+        .griditemname p {
+            margin-left: 60px;
+            font-size: 18px;
+            margin-top: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .details p {
+            margin-left: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: 100px;
+        }
+
+        .gridviewitem {
+            border: 2px solid rgb(196, 191, 191);
+            width: auto;
+            height: 300px;
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+        .icon{
+            border: 1px solid gainsboro;
+            box-shadow: none;
+        }
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        #optionsdate {
+            width: 100px;
+        }
+
+        #optionsdate p {
+            width: 100%;
+            text-align: center;
+        }
+
+        .smll-show {
+            display: none;
+        }
+
+        .smaller-side-p {
+            display: none;
+        }
+
+        .m-f-p-n-wrap {
+            display: none;
+        }
+
+        @media screen and (max-width:1500px) {
+            #sidepaneltwoid {
+                height: 130vh;
+            }
+
+            #grid {
+                grid-template-columns: 24% 24% 24% 24%;
+            }
+        }
+
+        @media screen and (max-width:1287px) {
+            .bodyofcontainer {
+                overflow: hidden;
+            }
+
+            .sectionsclass {
+                flex-wrap: wrap;
+            }
+
+
+        }
+
+        @media screen and (max-width:1150px) {
+
+            .sectionsclass {
+                width: auto;
+                justify-content: flex-start;
+            }
+        }
+
+        @media screen and (max-width:1115px) {
+            .formfilter {
+                margin-left: -20px;
+            }
+        }
+
+        @media screen and (max-width:1015px) {
+            .bodyofcontainer {
+                width: auto;
+                overflow: hidden;
+            }
+
+            #grid {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .leftsideoptions {
+                height: auto;
+            }
+
+            .sections {
+                height: auto;
+            }
+
+            .sectionsclass {
+                width: auto;
+                height: auto;
+            }
+
+            .leftsideoptions {
+                flex-wrap: wrap;
+                margin-left: 0px;
+            }
+
+            #sidebuttons {
+                margin-left: 0px;
+
+            }
+
+            .table {
+                overflow: scroll;
+            }
+
+            .formfilter {
+                position: absolute;
+            }
+
+           
+        }
+        @media screen and (max-width:950px) {
+            .smll-show {
+                display: block;
+            }
+
+            .spanclass {
+                display: inline;
+            }
+
+            .smaller-side-p {
+                display: block;
+            }
+
+            .m-f-p-n-wrap {
+                display: block;
+            }
+
+            #sidepaneltwoid {
+                display: none;
+            }
+
+            .menu-wrap {
+                display: none;
+            }
+            .bodyofcontainer{
+                height: 100vh;
+            }
+        }
+        @media screen and (max-width:914px) {
+            .title {
+                width: auto;
+            }
+        }
+
+        @media screen and (max-width:870px) {
+
+            .leftsideoptions {
+                margin-left: 0px;
+            }
+
+            .sections {
+                flex-wrap: wrap;
+                height: auto;
+            }
+
+            .sectionsclass {
+                height: auto;
+            }
+
+            .formfilter {
+                position: absolute;
+                margin-right: 10px;
+            }
+
+        }
+
+        @media screen and (max-width:842px) {
+            .title {
+                width: auto;
+            }
+
+            .title-logo-wrap {
+                width: fit-content;
+            }
+
+            .formfilter {
+                width: auto;
+                overflow: hidden;
+                position: absolute;
+
+            }
+
+            .formfilter .dates input {
+                width: auto;
+            }
+
+            .formfilter .threebuttons button {
+                width: auto;
+            }
+
+            #grid {
+                display: grid;
+                grid-template-columns: 45% 45%;
+            }
+
+        }
+
+        @media screen and (max-width:620px) {
+            
+
+            .date {
+                z-index: auto;
+            }
+
+            .formfilter {
+                position: absolute;
+            }
+        }
+
+        @media screen and (max-width:500px) {
+            .s-li-wrap {
+                justify-content: flex-start;
+                width: auto;
+            }
+
+            .formfilter {
+                position: absolute;
+            }
+        }
+
+        @media screen and (max-width:485px) {
+            #grid {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .gridviewitem {
+                width: auto;
+            }
+
+            #sort {
+                border: 1px solid gainsboro;
+                background: none;
+            }
+        }
+
+        @media screen and (max-width:405px) {
+            .s-li-wrap {
+                justify-content: flex-start;
+                width: auto;
+            }
+           
+        }
+       @media screen and (max-width:350px){
+        #sort{
+            border: none;
+        }
+        .options button{
+            border: 1px solid gainsboro;
+        }
+        .options{
+            flex-wrap: wrap;
+            height: auto;
+        }
+       }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+
+        <div class="container row smll-show">
+            <div class="marg-top he-l-p-wrap" id="margwrap" style="width:100%;padding: 0;">
+                <div class=" ha-m-wrap">
+
+                    <button class="openbtn" onclick="openNav()">☰ All </button>
+
+                    <div id="" class="sidepanel-w">
+
+                        <div id="mySidepanel" class="sidepanel">
+
+                            <div class=" f-p-n-wrap ar-p-wrap">
+
+                                <div class="ar-p">
+                                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i
+                                            class="fa fa-chevron-left" aria-hidden="true"></i></a>
+
+
+                                    <!--<a href="./account.html">
+                                        <div class="profile">
+
+                                            <img src="images/userprofile.webp" class="headerAccountImage">
+                                            <span></span>
+
+                                            <i class="fa fa-angle-down" aria-hidden="true" onclick="openH1()"></i>
+
+
+                                        </div>
+                                    </a>-->
+
+                                </div>
+
+
+                                <!--<div class="download-btn-container">
+                                    <i class="fa fa-clock-o dropbtn" aria-hidden="true" onclick="myFunctiondrm()"></i>
+
+                                    <div id="myDropdownhm" class="dropdown-downloadhm" title="live">
+                                        <i class="fa fa-circle" aria-hidden="true" style="color:green; "></i>
+                                    </div>
+                                    <div id="myDropdownm" class="dropdown-downloadm" title="Busy">
+                                        <i class="fa fa-circle" aria-hidden="true" style="color:red; "></i>
+                                    </div>
+                                </div>-->
+                            </div>
+
+
+                            <!--<div class=" f-p-n-wrap c-c-c-wrap">
+                                <div>
+                                    <i class="fa fa-user" aria-hidden="true"></i> <span> Contacts </span>
+                                </div>
+                                <div>
+                                    <i class="fa fa-comment" aria-hidden="true"></i> <span>Conversations </span>
+                                </div>
+                                <div>
+                                    <i class="fad fa-users-class"></i><span> Communities </span>
+                                </div>
+                            </div>-->
+
+
+                            <div class="form-group form-select m-search">
+
+                                <form name="search" method="post" action="" class=" searchBar">
+                                    <input type="text" name="text" maxlength="200" placeholder="Search" class=""
+                                        style="width:100%" />
+                                    <button type="submit"
+                                        style="border-radius: 10px; background: none; border: none;"><i
+                                            class="fa fa-search" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+
+
+                            <ul class="smaller-side-p">
+                                <!--<div class="smaller-side-p"> -->
+
+
+
+                                <li class="home-menu-list  module-list">
+
+                                    <a href="#"> <img src="/images/green-removebg-preview (1).png" width="20px "
+                                            height="20px">
+                                        <span class="spanclass"> SavedDate </span> </a>
+                                </li>
+
+
+
+                                <li class="home-menu-list  module-list">
+                                    <a href="#"> <img src="/images/blue-removebg-preview.png" width="20px "
+                                            height="20px"> <span class="spanclass"> Communities</span> </a>
+                                </li>
+
+
+                                <li class="home-menu-list  module-list">
+                                    <a href="#"> <img src="/images/user-removebg-preview.png" width="20px "
+                                            height="20px"> <span class="spanclass"> Archive </span> </a>
+                                </li>
+                                <li class="home-menu-list  module-list">
+                                    <a href="#"> <img src="./images/circle-solid-24.png" width="20px " height="20px">
+                                        <span class="spanclass"> About </span>
+                                    </a>
+                                </li>
+
+
+
+                            </ul>
+
+                            <!--<div class=" m-f-p-n-wrap">
+
+                                <a href="#">
+                                    <div class="tooltip ">
+
+
+                                        <i class="fas fa-server "></i>
+                                        <div class="tooltiptext">
+
+                                            <span>Saved Data </span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="./archives.html">
+                                    <div class="tooltip to1">
+                                        <i class="fa fa-archive" aria-hidden="true"></i>
+                                        <div class="tooltiptext">
+
+                                            <span>archive </span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="./communities.html">
+                                    <div class="tooltip to2">
+                                        <i class="fad fa-users-class"></i>
+                                        <div class="tooltiptext">
+
+                                            <span>Communities </span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="./about.html">
+                                    <div class="tooltip to3">
+                                        <i class="fa fa-bars" aria-hidden="true"></i>
+
+                                        <div class="tooltiptext">
+
+                                            <span>About </span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="#">
+                                    <div class="tooltip to4">
+                                        <i class="fa fa-cog settings" aria-hidden="true"></i>
+                                        <div class="tooltiptext">
+
+                                            <span>Settings </span>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>-->
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class=" s-li-wrap">
+
+
+
+                    <div class="form-group form-select">
+
+                        <form name="search" method="post" action="" class="desktop-search searchBar" id="searchBar">
+                            <!--<button type="submit" onclick="closeclick()"> <i class="fa fa-arrow-left back-arrow"
+                                    aria-hidden="true" id="back-arrow"></i> </button>-->
+                            <input type="text" name="text" maxlength="200" placeholder="Search" class="icon"
+                                id="icon" />
+                            <button type="submit" onclick="click(); clickf()" id="search-btn"><i class="fa fa-search"
+                                    aria-hidden="true"></i></button>
+                        </form>
+
+                    </div>
+
+                    <!--<i class="fa fa-list m-list" aria-hidden="true" onclick="openNavl()"></i>-->
+
+
+
+                    <div id="mySidenav" class="sidenavbar">
+                        <a href="" class="closebtn" onclick="closeNavl()">&times;</a>
+                        <h1 class="notification">Notifications</h1>
+
+                    </div>
+
+                    <script>
+
+
+                    </script>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="menu-container">
+                <div class="menu-hamburger">
+                    <div class="menu-hamburger__icon">
+
+                        <i class="fa fa-bars clr-white icon-font-he crsr" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="menu-wrap" style="width: 100%;">
+
+                    <div class="l-d-wrap-" style="display: flex;">
+
+                        <div class="logo-wrap" id="logo" onclick="myFunctiondt() ">
+
+                            <button onclick="openfunc()" id="menubartwoid"> ☰</button>
+
+                        </div>
+                        <!--<div class="logo">
+                            <img src="images/salesrapid.png" alt="">
+                        </div>-->
+                        <div class="title-logo-wrap">
+                            <img src="images/salesrapid-removebg-preview.png" alt="">
+                            <div class="title" style="justify-content: flex-start;">
+                                <h2>Customers</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="b-a-l-wrap">
+                        <div class="col-md-7 flex-center">
+                            <div class="menu-wrapper">
+
+                            </div>
+                        </div>
+
+                        <div class="download-btn-container">
+                            <!--<i class="fa fa-clock-o dropbtn" aria-hidden="true" onclick="myFunctiondr()"></i>
+
+                            <div id="myDropdownh" class="dropdown-downloadh" title="live">
+                                <i class="fa fa-circle" aria-hidden="true" style="color:green; "></i>
+                            </div>
+                            <div id="myDropdown" class="dropdown-download" title="Busy">
+                                <i class="fa fa-circle" aria-hidden="true" style="color:red; "></i>
+                            </div>-->
+                        </div>
+                        <a href="./account.html" style="text-decoration: none; font-size: 20px; color: black;">
+                            <div class="profile">
+                                <img src="./images/user icon.png" class="headerAccountImage">
+                                <!--<p id="headerAccountName">Dheeraj</p>-->
+                                <!--<i class="fa fa-angle-down" aria-hidden="true" onclick="openH()"></i>-->
+                                <!-- <div class="edit-options-popup" id="myH">
+          <div class="edit-options-container">
+    
+              <i class="fa fa-times cancel" aria-hidden="true" onclick="closeH()"></i>
+    
+           
+           <p>option1</p>
+         
+           
+          
+          </div>
+        </div> -->
+
+                            </div>
+                        </a>
+
+                        <!--<i class="fa fa-cog settings" aria-hidden="true" ></i>-->
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page" class="content">
+
+        <div class="container-fluid">
+            <div class="bodydivcontainer">
+                <div class="sidepaneltwo" id="sidepaneltwoid">
+                    <div class="sidebaritem">
+                        <p><i class="fas fa-server"></i></p>
+                        <p class="sidetext">Funnel</p>
+                    </div>
+                    <div class="sidebaritem">
+                        <p><i class="fa fa-archive"></i></p>
+                        <p class="sidetext">Customers</p>
+                    </div>
+                    <div class="sidebaritem">
+                        <p><i class="fa fa-archive"></i></p>
+                        <p class="sidetext">Organizations</p>
+                    </div>
+                    <div class="sidebaritem">
+                        <p><i class="fas fa-server"></i></p>
+                        <p class="sidetext">Support</p>
+                    </div>
+                    <div class="sidebaritem">
+                        <p><i class="fas fa-server"></i></p>
+                        <p class="sidetext">Settings</p>
+                    </div>
+                </div>
+                <div class="bodyofcontainer">
+
+                    <div class="sectionsclass">
+                        <div class="plusicon">
+                            <button><img src="images/plusicon.png" width="30px" height="30px" alt=""></button>
+                        </div>
+                        <div class="sections">
+
+                            <div class="leftsideoptions">
+
+                                <div class="options">
+                                    <div class="optionsdiv" id="selectitems" style="border: none;  ">
+                                        <div class="select-sim" id="datastatus">
+                                            <div class="options" style="display: block; border: none;">
+                                                <div class="option" style="border: none; margin-top: 8px; ">
+                                                    <input type="radio" name="color" value="" id="color-" checked />
+                                                    <label for="color-" id="liveStatus" style="border: none;  ">
+                                                        <img src="images/halfblue-removebg-preview.png" width="15"
+                                                            height="15"> Live
+                                                        <i class="fa fa-angle-down select-a-d" aria-hidden="true"></i>
+                                                        <i class='bx bxs-chevron-down'></i>
+                                                    </label>
+                                                </div>
+                                                <div class="option" style="border: none;">
+                                                    <input type="radio" name="color" value="red" id="color-red" />
+                                                    <label for="color-red" id="activeStatus">
+                                                        <img src="images/green-removebg-preview.png" width="15"
+                                                            height="15"> Active
+                                                        <i class="fa fa-angle-down select-a-d" aria-hidden="true"></i>
+                                                        <i class='bx bxs-chevron-down'></i>
+                                                    </label>
+                                                </div>
+                                                <div class="option" style="border: none;">
+                                                    <input type="radio" name="color" value="green" id="color-green" />
+                                                    <label for="color-green" id="draftStatus">
+                                                        <img src="images/yellow-removebg-preview.png" width="15"
+                                                            height="15"> Draft
+                                                        <i class="fa fa-angle-down select-a-d" aria-hidden="true"></i>
+                                                        <i class='bx bxs-chevron-down'></i>
+                                                    </label>
+                                                </div>
+                                                <div class="option" style="border: none;">
+                                                    <input type="radio" name="color" value="blue" id="color-blue" />
+                                                    <label for="color-blue" id="completeStatus">
+                                                        <img src="images/blue-removebg-preview.png" width="15"
+                                                            height="15"> Archived
+                                                        <i class="fa fa-angle-down select-a-d" aria-hidden="true"></i>
+                                                        <i class='bx bxs-chevron-down'></i>
+                                                    </label>
+                                                </div>
+                                                <div class="option" style="border: none;">
+                                                    <input type="radio" name="color" value="yellow" id="color-yellow" />
+                                                    <label for="color-yellow" id="inactiveStatus">
+                                                        <img src="images/circle-solid-24.png" width="15" height="15">
+                                                        Deleted
+                                                        <i class="fa fa-angle-down select-a-d" aria-hidden="true"></i>
+                                                        <i class='bx bxs-chevron-down'></i>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="options">
+                                    <p><input type="search" placeholder="search"></p>
+                                    <button><i class="fa-thin fa-magnifying-glass"></i></button>
+                                </div>
+                                <div class="date">
+                                    <div class="options" id="optionsdate">
+                                        <p>Date</p>
+                                    </div>
+                                    <div class="formfilter" id="form-filter">
+                                        <p>Form filter</p>
+                                        <div class="dates">
+                                            <input type="date" id="startdate"> -
+                                            <input type="date" id="enddate">
+                                        </div>
+                                        <div class="threebuttons">
+                                            <button id="filter">filter</button>
+                                            <button id="clear">Clear</button>
+                                            <button id="cancel">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="options" id="sidebuttons">
+                                    <button id="sorticon"><i class='bx bx-sort bx-md'></i></button>
+                                    <button id="sortby" ><select name="" id="sort">
+                                            <option value="">Sortby</option>
+                                        </select>
+                                        <i class="fa fa-angle-down select-a-d" aria-hidden="true" style="position: relative; top: 2px;"></i>
+                                    </button>
+                                    <button id="gridid"><img src="images/gridbutton-removebg-preview.png" width="50px"
+                                            height="30px" style="margin-top: 5px;" alt=""></button>
+                                    <button id="listid"><img src="images/listbutton-removebg-preview.png" height="30px"
+                                            width="30px" style="margin-top: 5px;" alt=""></button>
+                                </div>
+                            </div>
+                            <!-- <div class="options" id="sidebuttons" >
+                            <button id="sorticon"><i class='bx bx-sort bx-md'></i></button>
+                            <button id="sortby"><select  name="" id="sort" >
+                                <option value="">Sortby</option>
+                            </select></button>
+                            <button id="gridid"><img src="images/gridbutton-removebg-preview.png" width="50px" height="30px" alt=""></button>
+                        <button id="listid"><img src="images/listbutton-removebg-preview.png" height="30px" width="30px"
+                                alt=""></button>
+                       </div>-->
+                        </div>
+                    </div>
+                    <div class="table" id="tableid">
+                        <div class="tableclasstwo">
+                            <div class="tableclassthree">
+                                <div class="tablehead">
+                                    <div>
+                                        <p>Name</p>
+                                    </div>
+                                    <div>
+                                        <p>Description</p>
+                                    </div>
+                                    <div>
+                                        <p>City</p>
+                                    </div>
+                                    <div>
+                                        <p>Country</p>
+                                    </div>
+                                    <div>
+                                        <p>Created</p>
+                                    </div>
+                                    <div>
+                                        <p>Status</p>
+                                    </div>
+                                </div>
+                                <div class="tablebody">
+                                    <div>
+                                        <p id="name">Digital chatbot</p>
+                                    </div>
+                                    <div>
+                                        <p>None</p>
+                                    </div>
+                                    <div>
+                                        <p>Hyderabad</p>
+                                    </div>
+                                    <div>
+                                        <p>India</p>
+                                    </div>
+                                    <div>
+                                        <p>None</p>
+                                    </div>
+                                    <div>
+                                        <p>None</p>
+                                    </div>
+                                </div>
+                                <div class="tablebody">
+                                    <div>
+                                        <p id="name">Digital chatbot</p>
+                                    </div>
+                                    <div>
+                                        <p>None</p>
+                                    </div>
+                                    <div>
+                                        <p>Hyderabad</p>
+                                    </div>
+                                    <div>
+                                        <p>India</p>
+                                    </div>
+                                    <div>
+                                        <p>None</p>
+                                    </div>
+                                    <div>
+                                        <p>None</p>
+                                    </div>
+                                </div>
+                                <div class="tablebody">
+                                    <div>
+                                        <p id="name">Digital chatbot</p>
+                                    </div>
+                                    <div>
+                                        <p>None</p>
+                                    </div>
+                                    <div>
+                                        <p>Hyderabad</p>
+                                    </div>
+                                    <div>
+                                        <p>India</p>
+                                    </div>
+                                    <div>
+                                        <p>None</p>
+                                    </div>
+                                    <div>
+                                        <p>None</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gridviewclass" id="gridviewid">
+                        <div id="grid" class="gridview">
+                            <div class="gridviewitem">
+                                <div class="griditemname">
+                                    <div class="img"></div>
+                                    <p class="name">dheeraj</p>
+                                </div>
+                                <div class="details">
+                                    <p></p>
+                                    <p class="date">13-Feb-2023 17:42 none</p>
+                                </div>
+                            </div>
+                            <div class="gridviewitem">
+                                <div class="griditemname">
+                                    <div class="img"></div>
+                                    <p class="name">dheeraj</p>
+                                </div>
+                                <div class="details">
+                                    <p></p>
+                                    <p class="date">13-Feb-2023 17:42 none</p>
+                                </div>
+                            </div>
+                            <div class="gridviewitem">
+                                <div class="griditemname">
+                                    <div class="img"></div>
+                                    <p class="name">dheeraj</p>
+                                </div>
+                                <div class="details">
+                                    <p></p>
+                                    <p class="date">13-Feb-2023 17:42 none</p>
+                                </div>
+                            </div>
+                            <div class="gridviewitem">
+                                <div class="griditemname">
+                                    <div class="img"></div>
+                                    <p class="name">dheeraj</p>
+                                </div>
+                                <div class="details">
+                                    <p></p>
+                                    <p class="date">13-Feb-2023 17:42 none</p>
+                                </div>
+                            </div>
+                            <div class="gridviewitem">
+                                <div class="griditemname">
+                                    <div class="img"></div>
+                                    <p class="name">dheeraj</p>
+                                </div>
+                                <div class="details">
+                                    <p></p>
+                                    <p class="date">13-Feb-2023 17:42 none</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var grid = document.getElementById('gridid')
+        var list = document.getElementById('listid')
+        var table = document.getElementById('tableid')
+        var gridform = document.getElementById('gridviewid')
+        var sortby = document.getElementById('sortby')
+        var sidetext = document.querySelectorAll('.sidetext')
+        var sidebar = document.getElementById('sidepaneltwoid')
+        var spanclass = document.querySelectorAll('.spanclass')
+        var sorticon = document.getElementById('sorticon')
+        var date = document.getElementById('optionsdate')
+        document.getElementById('name').addEventListener('click',function(e){
+            e.preventDefault();
+            window.open('customersdetails.html')
+        })
+        grid.addEventListener('click', function (e) {
+            e.preventDefault();
+            sortby.style.display = "block"; var sidetext = document.querySelectorAll('.sidetext')
+
+            gridform.style.display = "block";
+            table.style.display = "none"
+        })
+        list.addEventListener('click', function (e) {
+            e.preventDefault()
+            sortby.style.display = "none"
+            gridform.style.display = "none"
+            table.style.display = "block"
+        })
+        function openNav() {
+            document.getElementById("mySidepanel").style.width = "100%";
+            document.getElementById('mysidepanel').style.height = "100%"
+            for (let i = 0; i < spanclass.length; i++) {
+                spanclass[i].style.display = "block"
+            }
+        }
+
+        function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+        }
+        function openfunc() {
+            if (sidebar.style.width == "60px") {
+                sidebar.style.width = "170px"
+                sidebar.style.transition = "width 1s"
+
+                for (let i = 0; i < sidetext.length; i++) {
+                    sidetext[i].style.display = "block"
+                    sidetext[i].style.animation = "fadein 2s"
+
+                }
+            }
+            else {
+                sidebar.style.width = "60px"
+                sidebar.style.transition = "width 1s"
+                for (let i = 0; i < sidetext.length; i++) {
+                    sidetext[i].style.display = "none"
+                }
+            }
+        }
+        date.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.getElementById('form-filter').style.display = "block"
+        })
+        document.getElementById('cancel').addEventListener('click', function (e) {
+            document.getElementById('form-filter').style.display = "none"
+        })
+        document.getElementById('name').addEventListener('click',function(e){
+            e.preventDefault();
+            window.open('salesrapiddetails.com')
+        })
+    </script>
+</body>
+
+</html>
